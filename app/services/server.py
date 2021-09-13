@@ -21,10 +21,10 @@ app = Flask(__name__)
 @app.route('/tasks/{taskId}',methods=['PUT'])
 #DEFINIR FUCION 
 
-@app.route('/tasks/{taskId}',methods='GET'])
+@app.route('/tasks/{taskId}',methods=['GET'])
 #DEFINIR FUCION 
 
-@app.route('/tasks/{roleId}',methods='GET'])
+@app.route('/tasks/{roleId}',methods=['GET'])
 #DEFINIR FUCION 
 
 @app.route('/login',methods=['POST'])
