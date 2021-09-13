@@ -9,6 +9,16 @@ CREATE TABLE role (
 );
 
 /*********************************************** 
+TABLA TASK
+***********************************************/
+
+CREATE TABLE task (
+    taskId INTEGER PRIMARY KEY AUTOINCREMENT,
+    description varchar(20) NOT NULL,
+);
+
+
+/*********************************************** 
 TABLA USER
 ***********************************************/
 
@@ -111,6 +121,13 @@ RELACION CADA USER DEBE TENER UN ROLE ASIGNADO
 ***********************************************/
 
 ALTER TABLE user ADD roleId INTEGER NOT NULL
+  REFERENCES role (roleId);
+  
+/***********************************************
+RELACION CADA TASK TENER UN ROLE ASIGNADO
+***********************************************/
+
+ALTER TABLE task ADD roleId INTEGER NOT NULL
   REFERENCES role (roleId);
 
 /***********************************************
