@@ -1,5 +1,5 @@
 from flask import Flask, request
-from servicios.autenticacion import autenticacion
+
 
 app = Flask(__name__)
 
@@ -32,6 +32,33 @@ app = Flask(__name__)
 
 @app.route('/logous',methods=['DELETE'])
 #DEFINIR FUCION 
+
+@app.route('/phramac_records/new',methods=['POST'])
+#DEFINIR FUCION
+
+@app.route('/pahrmac_records/{recordId}',methods=['GET'])
+#DEFINIR FUCION
+
+@app.route('/pahrmac_records',methods=['GET'])
+#DEFINIR FUCION
+
+@app.route('/material_records/new',methods=['POST'])
+#DEFINIR FUCION
+
+@app.route('/material_records/{recordId}',methods=['GET'])
+#DEFINIR FUCION
+
+@app.route('/material_records',methods=['GET'])
+#DEFINIR FUCION
+
+@app.route('/dialy_records/new',methods=['POST'])
+#DEFINIR FUCION
+
+@app.route('/dialy_records/{recordId}',methods=['GET'])
+#DEFINIR FUCION
+
+@app.route('dialy_records',methods=['GET'])
+#DEFINIR FUCION
 
 if __name__ == '__main__':
     app.debug = True
