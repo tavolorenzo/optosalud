@@ -15,7 +15,7 @@ CREATE TABLE task (
 create_user_table='''
 CREATE TABLE user (
     userId INTEGER PRIMARY KEY AUTOINCREMENT,
-    document varchar(20) UNIQUE INDEX NOT NULL,
+    document varchar(20) NOT NULL,
     name varchar(20) NOT NULL,
     lastname varchar(20) NOT NULL,
     photoURI varchar(255),
@@ -41,7 +41,7 @@ CREATE TABLE room (
 create_dailyRecord_table='''
 CREATE TABLE dialyRecord (
     recordId INTEGER PRIMARY KEY AUTOINCREMENT,
-    dateAndTime DATETIME DEFAULT CURRENT_TIMESTAMP INDEX,
+    dateAndTime DATETIME DEFAULT CURRENT_TIMESTAMP,
     bed varchar(5) NOT NULL,
     pacientDocument varchar(20) NOT NULL,
     pacientName varchar(20) NOT NULL,
@@ -61,7 +61,7 @@ CREATE TABLE drug (
 create_pharmacRecord_table='''
 CREATE TABLE pharmacRecord (
     recordId INTEGER PRIMARY KEY AUTOINCREMENT,
-    dateAndTime DATETIME DEFAULT CURRENT_TIMESTAMP INDEX,
+    dateAndTime DATETIME DEFAULT CURRENT_TIMESTAMP,
     isPrevision boolean DEFAULT FALSE
 )'''
 
@@ -78,7 +78,7 @@ CREATE TABLE material (
 create_materialRecord_table='''
 CREATE TABLE materialRecord (
     recordId INTEGER PRIMARY KEY AUTOINCREMENT,
-    dateAndTime DATETIME DEFAULT CURRENT_TIMESTAMP INDEX,
+    dateAndTime DATETIME DEFAULT CURRENT_TIMESTAMP,
     isPrevision boolean DEFAULT FALSE
 )'''
 
@@ -168,4 +168,6 @@ if __name__ == '__main__':
         conexion.close()
         print('Creacion Finalizada.')
     except Exception as e:
+        conexion.close()
         print(f'Error creando base de datos: {e}', e)
+        print("Conexion cerrada exitosamente.")
