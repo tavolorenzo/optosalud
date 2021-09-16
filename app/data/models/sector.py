@@ -1,5 +1,5 @@
 from data.databases.conectDB import database as bd
-from data.models.room import room
+from data.models import room
 
 def create_sector(name, photoURI, roomName):
     sql_sentence = f"""
