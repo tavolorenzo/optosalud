@@ -8,9 +8,10 @@ def create_user(document, name, lastName, phone, email, photoURI,password, jobPo
     bd.run_sql(sql_sentence)
 
 
-def update_user(phone, email, photoURI,password, jobPosition, roleId, status):
+def update_user(userId, phone, email, photoURI,password, jobPosition, roleId, status):
     sql_sentence = f"""
-        
+       UPDATE user SET phone='{phone}', email='{email}', photoURI='{photoURI}',password='{password}', jobPosition='{jobPosition}', roleId='{roleId}', status='{status}'
+       WHERE userId='{userId}'
     """
     bd.run_sql(sql_sentence)
 
