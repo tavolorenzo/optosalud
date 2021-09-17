@@ -1,4 +1,4 @@
-from data.databases.conectDB import database as bd
+from data.databases.connectDB import database as bd
 from data.models import material
 
 def create_materialRecord(sectorId,roomId,auxNurseId, nurseId, createdDate, materialName, comment, quantity, unit):

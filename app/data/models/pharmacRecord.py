@@ -1,4 +1,4 @@
-from data.databases.conectDB import database as bd
+from data.databases.connectDB import database as bd
 from data.models import drug
 
 def create_pharmacRecord(sectorId,roomId,auxNurseId, nurseId, createdDate,drugName, pharmaceuticalForm, quantity, unit,):

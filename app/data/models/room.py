@@ -1,4 +1,4 @@
-from data.databases.conectDB import database as bd
+from data.databases.connectDB import database as bd
 
 def create_room(rooms, sectorId):
     for item in rooms:

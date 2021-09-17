@@ -1,4 +1,4 @@
-from data.databases.conectDB import database as bd
+from data.databases.connectDB import database as bd
 
 def create_drug(recordId, name, pharmaceuticalForm, quantity, unit):
     sql_sentence = f"""

@@ -57,7 +57,7 @@ app = Flask(__name__)
 @app.route('/dialy_records/{recordId}',methods=['GET'])
 #DEFINIR FUCION
 
-@app.route('dialy_records',methods=['GET'])
+@app.route('/dialy_records',methods=['GET'])
 #DEFINIR FUCION
 
 if __name__ == '__main__':

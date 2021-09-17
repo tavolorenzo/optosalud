@@ -1,4 +1,4 @@
-from data.databases.conectDB import database as bd
+from data.databases.connectDB import database as bd
 
 def create_user(document, name, lastName, phone, email, photoURI,password, jobPosition, roleId):
     sql_sentence = f"""
@@ -33,3 +33,10 @@ def search_user_by_jobPosition(jobPosition):
     userInfo=bd.run_sql(sql_sentence)
     return userInfo
 
+def login_user(document):
+    sql_sentence = f"""
+    SELECT password FROM user
+    WHERE document='{document}'    
+    """
+    userInfo=bd.run_sql(sql_sentence)
+    return userInfo

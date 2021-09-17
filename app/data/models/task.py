@@ -1,4 +1,4 @@
-from data.databases.conectDB import database as bd
+from data.databases.connectDB import database as bd
 
 def create_task(roleId, title):
     sql_sentence = f"""
@@ -28,4 +28,3 @@ def view_task_by_role(roleId):
     """
     taskInfo=bd.run_sql(sql_sentence)
     return taskInfo
-
