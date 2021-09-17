@@ -13,7 +13,10 @@ app = Flask(__name__)
 #DEFINIR FUCION 
 
 @app.route('/users/new',methods=['POST'])
-#DEFINIR FUCION 
+def create_users():
+    create_users = request.get_json()
+    user.create_user(dates_users['document'], dates_users['name'],dates_users['lastname'],dates_users['phone'],dates_users['email'],dates_users['photoURI'],dates_users['password'],dates_users['jobposition'],dates_users['roleId'])
+    return 'OK', 200
 
 @app.route('/tasks/new',methods=['POST'])
 #DEFINIR FUCION 
