@@ -1,3 +1,4 @@
+from sys import exec_prefix
 from flask import Flask, request, jsonify
 from services.user import user
 from services.task import task
@@ -182,7 +183,6 @@ def create_dialyRecord():
     dialyRecord.create_dialyRecord(dialyRecord_info['sectorId'], dialyRecord_info['roomId'], dialyRecord_info['auxNurseId'], dialyRecord_info['nurseId'], dialyRecord_info['createdDate'], dialyRecord_info['bed'], dialyRecord_info['pacientDocument'], dialyRecord_info['pacientName'], dialyRecord_info['pacientLastName'],dialyRecord_info['comment'])
     return 'OK', 200
 
-
 @app.route('/dialy_records/<recordId>',methods=['GET'])
 def view_dialyRecord(recordId):
     try:
@@ -197,25 +197,62 @@ def view_dialyRecords():
     dialyRecord_info =dialyRecord.view_dialyRecords()
     return jsonify(dialyRecord_info)
 
-"""
 @app.route('/sectors/new',methods=['POST'])
-#DEFINIR FUCION
+def create_sector():
+    sector_info=request.get_json()
+    if 'name' not in sector_info:
+        return 'El sector es requerido', 412
+    if 'photoURI,' not in sector_info:
+        sector_info.update({'phtoURI':'imagens/sectoricon.png'})
+    if 'rooms,' not in sector_info:
+        return 'La habitacion es requerida', 412
+    sector.create_sector(sector_info['name'], sector_info['photoURI'], sector_info['rooms'] )
+    return 'OK', 200
 
 @app.route('/sectors/<sectorId>',methods=['PUT'])
-#DEFINIR FUCION
+def update_sectors(sectorId):
+    sector_info = request.get_json()
+    if 'sectorId' not in sector_info or sector_info['sectorId'] == '':
+        return 'El sector es requerido', 412
+    if 'name' not in sector_info:
+        return 'El nombre es requerido', 412
+    if 'photoURI' not in sector_info:
+        sector_info.update({'phtoURI':'imagens/sectoricon.png'})
+    if 'status' not in sector_info:
+        return 'La posicion es requerida', 412 
+    if 'rooms' not in sector_info:
+        return 'La habitacion es requerida', 412
+    try:
+        sector.update_sector(sectorId, sector_info['name'], sector_info['photoURI'], sector_info['status'], sector_info['rooms'],)
+        return 'OK', 200
+    except Exception:
+        return 'El usuario no existe', 404
 
 @app.route('/sectors/<sectorId>',methods=['GET'])
-#DEFINIR FUCION
+def view_sector(sectorId):
+    try:
+        sector_info =sector.view_sector(sectorId)
+        return jsonify(sector_info)
+    except Exception:
+        return 'Sector no encontrado', 404
 
 @app.route('/sectors',methods=['GET'])
-#DEFINIR FUCION
+def view_sectors():
+    sectors_info = sector.view_sectors()
+    return jsonify(sectors_info)
 
 @app.route('/sectors/search',methods=['GET'])
-#DEFINIR FUCION
+def search_sectorId():
+    sector_info=request.get_json()
+    try:
+        if 'name' not in sector_info:
+            return 'El nombre de sector es requerido', 412
+        sectorId=sector.search_sectorId_ny_name(sector_info['name'])
+        return jsonify(sectorId)
+    except Exception:
+        return 'No se encontraron sectores con ese nombre', 404
 
-@app.route('/<sectorId>/rooms',methods=['GET'])
-#DEFINIR FUCION
-
+"""
 @app.route('/phramac_records/new',methods=['POST'])
 #DEFINIR FUCION
 

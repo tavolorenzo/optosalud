@@ -25,6 +25,23 @@ def view_sector(sectorId):
     sql_sentence=f"""
         SELECT * FROM sector 
         INNER JOIN room ON sector.sectorId=room.sectorId
+        WHERE sectorId='{sectorId}'
     """
     sectorInfo = bd.run_sql(sql_sentence)
+    return sectorInfo
+
+def view_sectors():
+    sql_sentence=f"""
+        SELECT * FROM sector 
+        INNER JOIN room ON sector.sectorId=room.sectorId
+    """
+    sectorsInfo = bd.run_sql(sql_sentence)
+    return sectorsInfo
+
+def search_sectorId_ny_name(name):
+    sql_sentence=f"""
+        SELECT sectorId FROM sector
+        WHERE name='{name}'
+    """
+    sectorInfo=bd.run_sql(sql_sentence)
     return sectorInfo
