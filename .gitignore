@@ -5,3 +5,5 @@ app/services/sector/__pycache__
 app/services/role/__pycache__
 app/services/task/__pycache__
 app/services/user/__pycache__
+app/autentication/__pycache__
+app/dialyRecord/__pycache__
