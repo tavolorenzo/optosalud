@@ -12,7 +12,7 @@ app = Flask(__name__)
 def login():
     login_info=request.get_json()
     if 'document' not in login_info:
-        return 'El decumento de usuario es requerido', 412
+        return 'El documento de usuario es requerido', 412
     if 'password' not in login_info:
         return 'La clave es requerida', 412 
     try:
@@ -54,7 +54,7 @@ def view_user(user_id):
 def create_users():
     user_info = request.get_json()
     if 'document' not in user_info:
-        return 'El decumento de usuario es requerido', 412
+        return 'El documento de usuario es requerido', 412
     if 'name' not in user_info:
         return 'El nombre de usuario es requerido', 412
     if 'lastName' not in user_info:
@@ -75,7 +75,7 @@ def create_users():
         user.create_user(user_info['document'], user_info['name'], user_info['lastname'], user_info['phone'], user_info['email'], user_info['photoURI'], user_info['password'], user_info['jobposition'], user_info['roleId'])
         return 'OK', 200
     except Exception:
-        return 'Le usuario ya existe', 412 
+        return 'El usuario ya existe', 412 
 
 @app.route('/users/<userId>',methods=['PUT'])
 def update_user(userId):
