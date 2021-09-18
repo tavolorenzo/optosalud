@@ -5,7 +5,8 @@ from services.user import user
 app = Flask(__name__)
 
 @app.route('/users',methods=['GET'])
-#DEFINIR FUCION 
+def get_users():
+    return jsonify(users.get_view_user())
 
 @app.route('/users/search',methods=['GET'])
 #DEFINIR FUCION 
