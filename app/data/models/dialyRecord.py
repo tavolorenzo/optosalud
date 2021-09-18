@@ -18,3 +18,14 @@ def view_dialyRecord(recordId):
     """
     dialyRecordInfo=bd.run_sql(sql_sentence)
     return dialyRecordInfo
+
+def view_dialyRecords():
+    sql_sentence = f"""
+    SELECT * FROM dialyRecord 
+    INNER JOIN sector ON dialyRecord.sectorId=sector.sectorId
+    INNER JOIN room ON dialyRecord.roomId=room.roomId
+    INNER JOIN user ON dialyRecord.nurseId=user.userId
+    INNER JOIN user ON dialyRecord.auxNurseId=user.userId
+    """
+    dialyRecordsInfo=bd.run_sql(sql_sentence)
+    return dialyRecordsInfo

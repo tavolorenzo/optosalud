@@ -18,14 +18,14 @@ def search_room_by_sector(sectorId):
 '''
 
 def update_room(rooms,sectorId):
-    for item in rooms:
+    for room in rooms:
         try: 
             sql_sentence = f"""
-            UPDATE room SET name='{rooms["name"]}', status='{rooms["status"]}' 
-            WHERE roomId='{rooms["roomId"]}'
+            UPDATE room SET name='{room["name"]}', status='{room["status"]}' 
+            WHERE roomId='{room["roomId"]}'
             """
             bd.run_sql(sql_sentence)
-        except:
+        except Exception:
             sql_sentence = f"""
             INSERT INTO room (name, sectorId) 
             VALUES ('{rooms["name"]}','{sectorId}')

@@ -15,16 +15,25 @@ def update_user(userId, phone, email, photoURI,password, jobPosition, roleId, st
     """
     bd.run_sql(sql_sentence)
 
-def view_user(document):
+def view_user_by_document(document):
     sql_sentence = f"""
-    SELECT * FROM user
+    SELECT userId FROM user
     INNER JOIN role ON role.roleId=role.roleId
     WHERE document='{document}'  
     """
     userInfo=bd.run_sql(sql_sentence)
     return userInfo
-    
-def search_user_by_jobPosition(jobPosition):
+
+def view_user_by_id(userId):
+    sql_sentence = f"""
+    SELECT * FROM user
+    INNER JOIN role ON role.roleId=role.roleId
+    WHERE userId='{userId}'  
+    """
+    userInfo=bd.run_sql(sql_sentence)
+    return userInfo
+
+def search_users_by_jobPosition(jobPosition):
     sql_sentence = f"""
     SELECT * FROM user
     INNER JOIN role ON role.roleId=role.roleId

@@ -5,3 +5,7 @@ def create_dialyRecord(sectorId,roomId,auxNurseId, nurseId, createdDate, bed, pa
 
 def view_dialyRecord(recordId):
     dialyRecord_Model.view_dialyRecord(recordId)
+
+def view_dialyRecords():
+    dialyRecord_Model.view_dialyRecords()
+    
