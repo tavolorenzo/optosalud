@@ -64,7 +64,6 @@ if 'name' not in user_info:
 #DEFINIR FUCION
 
 @app.route('/material_records/new',methods=['POST'])
-#DEFINIR FUCION
 
 @app.route('/material_records/{recordId}',methods=['GET'])
 #DEFINIR FUCION
@@ -73,14 +72,43 @@ if 'name' not in user_info:
 #DEFINIR FUCION
 
 @app.route('/dialy_records/new',methods=['POST'])
-#DEFINIR FUCION
+def create_dialy_record():
+if 'sectorId' not in dialy_info:
+        return 'El sector es requerido', 412
+    if 'roomId' not in dialy_info:
+        return 'La habitacion es requerida', 412
+    if 'auxNurseId' not in dialy_info:
+        return 'Puesto de trabajo requerido', 412 
+    if 'nurseId' not in dialy_info:
+        return 'Puesto de trabajo requerido', 412
+    if 'createdate' not in dialy_info:
+        return 'La fecha y hora es requerida', 412  
+     if 'bed' not in dialy_info:
+        return 'cama requerida', 412
+    if 'pacientdocument' not in dialy_info:
+        return 'Documento del paciente requerido', 412   
+    if 'pacientname' not in dialy_info:
+        return 'Nombre del paciente requerido', 412
+    if 'pacientlastname' not in dialy_info:
+        return 'Apellido del paciente requerido', 412   
+     if 'comment' not in dialy_info:
+        return 'Comentario requerido', 412        
+    dialy.create_dialy_record(dialy_info['sectorId'], dialy_info['roomId'], dialy_info['auxNurseId'], dialy_info['nurseId'], dialy_info['createdate'], user_info['bed'], dialy_info['pacientdocument'], dialy_info['pacientname'], dialy_info['comment'])
+    return 'OK', 200
+
 
 @app.route('/dialy_records/{recordId}',methods=['GET'])
-#DEFINIR FUCION
+def view_dialyrecord(recordId):
+    try:
+        dialy =.view_dialyrecord(recordId)
+        return jsonify(dialy)
+    except Exception:
+        return 'Registro no encontrado', 404
+
 
 @app.route('/dialy_records',methods=['GET'])
-#DEFINIR FUCION
-
+def view_dialyrecord():
+    return jsonify(.view_dialyrecord())
 if __name__ == '__main__':
     app.debug = True
     app.run(port=5001)
