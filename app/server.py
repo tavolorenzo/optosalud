@@ -38,8 +38,12 @@ if 'name' not in user_info:
 #DEFINIR FUCION 
 
 @app.route('/tasks/{taskId}',methods=['GET'])
-#DEFINIR FUCION 
-
+ def get_task(taskId):
+    try:
+        task = autenticacion.get_task(taskId)
+        return jsonify(task)
+    except Exception:
+        return 'Campo rol no encontrado', 404
 @app.route('/tasks/{roleId}',methods=['GET'])
 #DEFINIR FUCION 
 
