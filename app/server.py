@@ -135,8 +135,26 @@ def create_role():
         return "La desscripcion del rol es requeria", 412
     if 'access' not in role_info:
         return "La acceso del rol es requeria", 412
-    role.create_role
+    role.create_role(role_info['description'], role_info['access'])
+    return 'OK', 200
 
+@app.route('/roles/<roleId>',methods=['PUT'])
+def update_role(roleId):
+    role_info=request.get_json()
+    if 'description' not in role_info:
+        return "La desscripcion del rol es requeria", 412
+    if 'access' not in role_info:
+        return "La acceso del rol es requeria", 412
+    role.update_role(roleId,role_info['description'], role_info['access'])
+    return 'OK', 200
+
+@app.route('/roles/<roleId>',methods=['GET'])
+def view_role(roleId):
+    try:
+        role_info=role.view_role(roleId)
+        return jsonify(role_info)
+    except Exception:
+        return 'No se ha encontrado el rol', 404
 
 @app.route('/dialy_records/new',methods=['POST'])
 def create_dialyRecord():
