@@ -1,4 +1,3 @@
-from sys import exec_prefix
 from flask import Flask, request, jsonify
 from services.user import user
 from services.task import task
@@ -44,9 +43,9 @@ def get_users_by_jobPosition():
         return 'No se encontraron usuarios', 404
 
 @app.route('/users/<userId>',methods=['GET'])
-def view_user(user_id):
+def view_user(userId):
     try:
-        user_info=user.view_user_by_id(user_id)
+        user_info = user.view_user_by_id(userId)
         return jsonify(user_info)
     except Exception:
         return 'Usuario no encontrado', 404
@@ -73,10 +72,10 @@ def create_users():
     if 'password' not in user_info:
         return 'La clave es requerida', 412 
     try:
-        user.create_user(user_info['document'], user_info['name'], user_info['lastname'], user_info['phone'], user_info['email'], user_info['photoURI'], user_info['password'], user_info['jobposition'], user_info['roleId'])
+        user.create_user(user_info['document'], user_info['name'], user_info['lastName'], user_info['phone'], user_info['email'], user_info['photoURI'], user_info['password'], user_info['jobPosition'], user_info['roleId'])
         return 'OK', 200
     except Exception:
-        return 'El usuario ya existe', 412 
+        return 'El usauario ya existe o no se creo', 412
 
 @app.route('/users/<userId>',methods=['PUT'])
 def update_user(userId):
@@ -107,13 +106,13 @@ def create_task():
     task_info = request.get_json()
     if 'roleId' not in task_info:
         return 'El campo rol es requerido', 412
-    if 'title' not in task_info:
-        return 'El titulo es requerido', 412
-    task.create_task(task_info['roleId'], task_info['title'])
+    if 'description' not in task_info:
+        return 'La descripcion es requerido', 412
+    task.create_task(task_info['roleId'], task_info['description'])
     return 'OK', 200
  
   
-@app.route('/tasks/{taskId}',methods=['GET'])
+@app.route('/tasks/<taskId>',methods=['GET'])
 def view_task(taskId):
     try:
         task_info = task.view_task(taskId)
@@ -121,7 +120,7 @@ def view_task(taskId):
     except Exception:
         return 'La tarea no se ha encontrado', 404
 
-@app.route('/tasks/{roleId}',methods=['GET'])
+@app.route('/tasks/role/<roleId>',methods=['GET'])
 def view_task_by_role(roleId):
     try:
         tasks_info = task.view_task_by_role(roleId)
@@ -168,19 +167,17 @@ def create_dialyRecord():
         return 'Puesto de trabajo requerido', 412 
     if 'nurseId' not in dialyRecord_info:
         return 'Puesto de trabajo requerido', 412
-    if 'createdDate' not in dialyRecord_info:
-        return 'La fecha y hora es requerida', 412  
     if 'bed' not in dialyRecord_info:
         return 'cama requerida', 412
-    if 'pacientdocument' not in dialyRecord_info:
+    if 'pacientDocument' not in dialyRecord_info:
         return 'Documento del paciente requerido', 412   
-    if 'pacientname' not in dialyRecord_info:
+    if 'pacientName' not in dialyRecord_info:
         return 'Nombre del paciente requerido', 412
-    if 'pacientlastname' not in dialyRecord_info:
+    if 'pacientLastName' not in dialyRecord_info:
         return 'Apellido del paciente requerido', 412   
     if 'comment' not in dialyRecord_info:
         return 'Comentario requerido', 412        
-    dialyRecord.create_dialyRecord(dialyRecord_info['sectorId'], dialyRecord_info['roomId'], dialyRecord_info['auxNurseId'], dialyRecord_info['nurseId'], dialyRecord_info['createdDate'], dialyRecord_info['bed'], dialyRecord_info['pacientDocument'], dialyRecord_info['pacientName'], dialyRecord_info['pacientLastName'],dialyRecord_info['comment'])
+    dialyRecord.create_dialyRecord(dialyRecord_info['sectorId'], dialyRecord_info['roomId'], dialyRecord_info['auxNurseId'], dialyRecord_info['nurseId'], dialyRecord_info['bed'], dialyRecord_info['pacientDocument'], dialyRecord_info['pacientName'], dialyRecord_info['pacientLastName'],dialyRecord_info['comment'])
     return 'OK', 200
 
 @app.route('/dialy_records/<recordId>',methods=['GET'])
@@ -204,7 +201,7 @@ def create_sector():
         return 'El sector es requerido', 412
     if 'photoURI,' not in sector_info:
         sector_info.update({'phtoURI':'imagens/sectoricon.png'})
-    if 'rooms,' not in sector_info:
+    if 'rooms' not in sector_info:
         return 'La habitacion es requerida', 412
     sector.create_sector(sector_info['name'], sector_info['photoURI'], sector_info['rooms'] )
     return 'OK', 200

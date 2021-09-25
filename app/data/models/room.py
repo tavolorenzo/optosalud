@@ -1,11 +1,12 @@
-from data.databases.connectDB import database as bd
+from data.databases.connectDB import database
 
 def create_room(rooms, sectorId):
-    for item in rooms:
+    for room in rooms():    
         sql_sentence = f"""
         INSERT INTO room (name, sectorId) 
-        VALUES ('{rooms["name"]}','{sectorId}')
+        VALUES ('{room["name"]}','{sectorId}')
         """
+        bd=database()
         bd.run_sql(sql_sentence)
     
 '''
@@ -24,10 +25,12 @@ def update_room(rooms,sectorId):
             UPDATE room SET name='{room["name"]}', status='{room["status"]}' 
             WHERE roomId='{room["roomId"]}'
             """
+            bd=database()
             bd.run_sql(sql_sentence)
         except Exception:
             sql_sentence = f"""
             INSERT INTO room (name, sectorId) 
             VALUES ('{rooms["name"]}','{sectorId}')
             """
+            bd=database()
             bd.run_sql(sql_sentence)

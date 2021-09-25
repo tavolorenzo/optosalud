@@ -7,10 +7,10 @@ def update_user(userId, phone, email, photoURI,password, jobPosition, roleId, st
     user_model.update_user(userId, phone, email, photoURI,password, jobPosition, roleId, status)
 
 def view_user_by_document(document):
-    user_model.view_user_by_document(document)
+    return user_model.view_user_by_document(document)
 
 def view_user_by_id(userId):
-    user_model.view_user_by_id(userId)
+    return user_model.view_user_by_id(userId)
 
 def search_users_by_jobPosition(jobPosition):
-    user_model.search_users_by_jobPosition(jobPosition)
+    return user_model.search_users_by_jobPosition(jobPosition)

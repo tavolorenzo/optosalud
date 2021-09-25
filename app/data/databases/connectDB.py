@@ -1,7 +1,7 @@
 import sqlite3
 
 class database:
-    url_database = '../../optosalud.db'
+    url_database = 'app\data\databases\optosalud.db'
 
     def _open_conection(self):
         try:
@@ -13,12 +13,15 @@ class database:
         self.conexion.close()
         self.conexion = None
 
-    def run_sql(self, sql):
+    def run_sql(self, sql,return_id=False):
         self._open_conection()
         cur = self.conexion.cursor()
         cur.execute(sql)
 
         rows = cur.fetchall()
+        
+        if return_id:
+            rows=cur.lastrowid
 
         self.conexion.commit()
         self._close_conection()

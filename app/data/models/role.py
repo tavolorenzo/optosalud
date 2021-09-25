@@ -3,7 +3,7 @@ from data.databases.connectDB import database
 def create_role(roleDescription, access):
     sql_sentence = f"""
     INSERT INTO role(roleDescription, access) 
-    VALUE ('{roleDescription}','{access}')
+    VALUES ('{roleDescription}','{access}')
     """
     bd=database()
     bd.run_sql(sql_sentence)
@@ -22,4 +22,6 @@ def view_role(roleId):
     WHERE roleId='{roleId}'
     """
     bd=database()
-    bd.run_sql(sql_sentence)
+    return [{"roleId": entry[0],
+             "description": entry[1],
+             } for entry in bd.run_sql(sql_sentence)]

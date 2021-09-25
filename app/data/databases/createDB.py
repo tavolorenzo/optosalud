@@ -5,7 +5,7 @@ FK_ON='PRAGMA foreing_keys=ON'
 create_role_table='''
   CREATE TABLE role (
     roleId INTEGER PRIMARY KEY AUTOINCREMENT,
-    description varchar(20) NOT NULL,
+    roleDescription varchar(20) NOT NULL,
     access varchar(50) NOT NULL
     )'''
 create_task_table='''
@@ -144,7 +144,7 @@ IX_materialRecord_createdDate='''
 if __name__ == '__main__':
     try:
         print('Creando Base de datos..')
-        conexion = sqlite3.connect('../../optosalud.db')
+        conexion = sqlite3.connect('app\data\databases\optosalud.db')
         conexion.execute(FK_ON)
 
         print('Creando Tablas..')

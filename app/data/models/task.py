@@ -1,30 +1,44 @@
-from data.databases.connectDB import database as bd
+from data.databases.connectDB import database 
 
-def create_task(roleId, title):
+def create_task(roleId, description):
     sql_sentence = f"""
-        INSERT INTO TASK(roleId, title) 
-        VALUES ('{roleId}', '{title}')
+        INSERT INTO TASK(roleId, description) 
+        VALUES ('{roleId}', '{description}')
     """
+    bd=database()
     bd.run_sql(sql_sentence)
 
-def update_task(taskId, title):
+def update_task(taskId, description):
     sql_sentence = f"""
-        UPDADE task SET title='{title}' WHERE taskId='{taskId}'
+        UPDADE task SET description='{description}' WHERE taskId='{taskId}'
     """
+    bd=database()
     bd.run_sql(sql_sentence)
 
 def view_task(taskId):
     sql_sentence = f"""
-    SELECT * FROM task WHERE taskId='{taskId}'  
+    SELECT task.* role.roleDescription 
+    FROM task 
+    INNER JOIN role ON task.roleId=role.roleId
+    WHERE taskId='{taskId}'  
     """
-    taskInfo=bd.run_sql(sql_sentence)
-    return taskInfo
+    bd=database()
+    return [{"taskId": entry[0],
+             "description": entry[1],
+             "roleId": entry[2],
+             "roleDescription": entry[2],
+             } for entry in bd.run_sql(sql_sentence)]
 
 def view_task_by_role(roleId):
     sql_sentence = f"""
-    SELECT * FROM task 
+    SELECT task.* role.roleDescription 
+    FROM task 
     INNER JOIN role ON task.roleId=role.roleId
     WHERE roleId='{roleId}'  
     """
-    taskInfo=bd.run_sql(sql_sentence)
-    return taskInfo
+    bd=database()
+    return [{"taskId": entry[0],
+             "description": entry[1],
+             "roleId": entry[2],
+             "roleDescription": entry[2],
+             } for entry in bd.run_sql(sql_sentence)]
