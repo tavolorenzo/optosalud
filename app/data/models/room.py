@@ -1,13 +1,14 @@
+from os import name
 from data.databases.connectDB import database
 
-def create_room(rooms, sectorId):
-    for room in rooms():    
-        sql_sentence = f"""
-        INSERT INTO room (name, sectorId) 
-        VALUES ('{room["name"]}','{sectorId}')
-        """
-        bd=database()
-        bd.run_sql(sql_sentence)
+def create_room(rooms, sectorId): #OK
+        for room in rooms:
+                sql_sentence = f"""
+                INSERT INTO room (name, sectorId) 
+                VALUES ('{room}','{sectorId}')
+                """
+                bd=database()
+                bd.run_sql(sql_sentence)
     
 '''
 def search_room_by_sector(sectorId):
@@ -18,19 +19,20 @@ def search_room_by_sector(sectorId):
     return roomsInfo
 '''
 
-def update_room(rooms,sectorId):
-    for room in rooms:
-        try: 
-            sql_sentence = f"""
-            UPDATE room SET name='{room["name"]}', status='{room["status"]}' 
-            WHERE roomId='{room["roomId"]}'
-            """
-            bd=database()
-            bd.run_sql(sql_sentence)
-        except Exception:
-            sql_sentence = f"""
-            INSERT INTO room (name, sectorId) 
-            VALUES ('{rooms["name"]}','{sectorId}')
-            """
-            bd=database()
-            bd.run_sql(sql_sentence)
+def update_room(rooms,sectorId): #OK
+        for  room in rooms:
+                sql_sentence = f"""
+                SELECT roomId FROM room
+                WHERE sectorId='{sectorId}' AND name='{room}'
+                """
+                bd=database()
+                roomId=bd.run_sql(sql_sentence) 
+                if roomId == []:
+                        sql_sentence = f"""
+                        INSERT INTO room (name, sectorId) 
+                        VALUES ('{room}','{sectorId}')
+                        """
+                        bd=database()
+                        bd.run_sql(sql_sentence)
+
+

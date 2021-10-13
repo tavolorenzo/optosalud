@@ -28,11 +28,21 @@ CREATE TABLE user (
     status boolean DEFAULT TRUE
 )'''
 
+create_sessions_table = '''
+CREATE TABLE sessions(
+ id INTEGER PRIMARY KEY,
+ userId INTEGER,
+ date TEXT,
+ FOREIGN KEY(userId) REFERENCES USERS(userID) 
+)
+'''
+
 create_sector_table='''
 CREATE TABLE sector (
     sectorId INTEGER PRIMARY KEY AUTOINCREMENT,
     name varchar(20) NOT NULL,
-    photoURI varchar(255)
+    photoURI varchar(255),
+    status boolean DEFAULT TRUE
 )'''
 
 create_room_table='''
@@ -40,6 +50,7 @@ CREATE TABLE room (
     roomId INTEGER PRIMARY KEY AUTOINCREMENT,
     sectorId INTEGER NOT NULL REFERENCES sector(sectorId),
     name varchar(20) NOT NULL,
+    status boolean DEFAULT TRUE,
     UNIQUE(sectorId, name)
 )'''
 create_dailyRecord_table='''
@@ -144,13 +155,14 @@ IX_materialRecord_createdDate='''
 if __name__ == '__main__':
     try:
         print('Creando Base de datos..')
-        conexion = sqlite3.connect('app\data\databases\optosalud.db')
+        conexion = sqlite3.connect('optosalud.db')
         conexion.execute(FK_ON)
 
         print('Creando Tablas..')
         conexion.execute(create_role_table)
         conexion.execute(create_task_table)
         conexion.execute(create_user_table)
+        conexion.execute(create_sessions_table)
         conexion.execute(create_sector_table)
         conexion.execute(create_room_table)
         conexion.execute(create_dailyRecord_table)
