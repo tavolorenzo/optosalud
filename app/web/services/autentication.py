@@ -1,9 +1,9 @@
 import requests
-from web.services import rest_api
+from services import rest_api
 
-def valid_credentials(documment,password):
+def valid_credentials(document,password):
     body = {
-        "documment": documment,
+        "document":document,
         "password":password
     }
     answer = requests.post(f'{rest_api.API_URL}/login', json=body)

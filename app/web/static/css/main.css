@@ -1,0 +1,77 @@
+@font-face {
+  font-family: "PT Sans";
+  src: url("fonts/PT_Sans.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "PT Sans";
+  src: url("fonts/PT_Sans_Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "PT Sans";
+  src: url("fonts/PT_Sans_Narrow_Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: bold;
+}
+label {
+  margin-left: 5%;
+  margin-bottom: 0px;
+}
+
+#logo {
+  width: 167px;
+  border: 2px solid #695d47;
+  border-radius: 100%;
+  opacity: 1;
+}
+.title1 {
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: bold;
+  color: #695d47;
+}
+.title2 {
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: normal;
+  color: #008575;
+}
+.error {
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: normal;
+  color: #fc7138;
+}
+.container-fluid {
+  width: 100%;
+  margin-top: 5%;
+}
+.top-bar {
+    width: 20%;
+    margin-left: 5%;
+    margin-bottom: 0px;
+    
+}
+.btn-primary {
+  border-radius: 50%;
+  background-color: #fc7138;
+  color: #000000;
+  font-family: "PT Sans Narrow";
+  font-style: normal;
+  font-weight: bold;
+  border-width: 0px;
+}
+
+.btn-secondary {
+  border-radius: 50%;
+  background-color: #a3e7d9;
+  color: #000000;
+  font-family: "PT Sans Narrow";
+  font-style: normal;
+  font-weight: bold;
+  border-width: 0px;
+}
