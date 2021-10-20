@@ -8,16 +8,24 @@ app = Flask(__name__)
 def index():
     return redirect(url_for('login'))
 
-@app.route('/error', methods=['GET'])
+@app.route('/error', methods=['GET', 'POST'])
 def error():
     return render_template('error.html')
+
+@app.route('/base_template', methods=['GET', 'POST'])
+def base_template():
+    return render_template('base_template.html')
+
+@app.route('/help', methods=['GET'])
+def help():
+    return render_template('help.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
     if request.method == 'POST':
         if not autentication.valid_credentials(request.form['document'], request.form['password']):
-            error = 'Credenciales inválidas'
+            error = 'El usuario y/o la contraseña ingresados son incorrectos, contáctese con el supervisor.'
         else:
             return redirect(url_for('sector_room'))
     return render_template('login.html', error=error)

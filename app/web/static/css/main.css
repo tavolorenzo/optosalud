@@ -28,6 +28,39 @@ label {
   border-radius: 100%;
   opacity: 1;
 }
+
+#user-icon {
+  width: 54px;
+  border: 2px solid #695d47;
+  border-radius: 100%;
+  opacity: 1;
+  cursor: pointer;
+}
+
+
+#page-buttoms{
+  margin-bottom: 0px;
+}
+.main-menu-style{
+  border: 2px solid #000000;
+  border-radius:25px;
+  opacity: 1;
+  padding: 20%;
+}
+.main-menu-items{
+  text-align: center; 
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.main-menu-item{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 0px;
+  padding-right: 0px;
+  cursor: pointer;
+}
 .title1 {
   font-family: "PT Sans";
   font-style: normal;
@@ -47,31 +80,44 @@ label {
   color: #fc7138;
 }
 .container-fluid {
-  width: 100%;
-  margin-top: 5%;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 .top-bar {
     width: 20%;
     margin-left: 5%;
-    margin-bottom: 0px;
-    
+    margin-bottom: 0px;  
 }
 .btn-primary {
-  border-radius: 50%;
+  border-radius: 25px;
   background-color: #fc7138;
   color: #000000;
   font-family: "PT Sans Narrow";
   font-style: normal;
   font-weight: bold;
   border-width: 0px;
+
 }
 
 .btn-secondary {
-  border-radius: 50%;
+  border-radius: 25px;
   background-color: #a3e7d9;
   color: #000000;
   font-family: "PT Sans Narrow";
   font-style: normal;
   font-weight: bold;
   border-width: 0px;
+}
+.sector-room-card{
+  border-radius: 25px;
+  background: #54545433;
+  border: 2px solid #707070;
+  color: #000000;
+  font-family: "PT Sans Narrow";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 42px;
+  padding: 15px;
+  margin: 5px;
+  cursor: pointer;
 }

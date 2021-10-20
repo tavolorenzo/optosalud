@@ -47,9 +47,10 @@
                 </div>
             </div>
         </div>
+        <br class="d-none d-sm-block">
         <div class="row justify-content-center">
                 <!-- Login Form -->
-                <form action="" method="post" autocomplete="off">
+                <form action="" method="post" autocomplete="on">
                     <div class="form-group row">
                       <label for="document">Documento</label>
                       <input type="text" class="form-control" id="document" aria-describedby="docummentHelp" placeholder="Ingresa tu documento" 
@@ -66,13 +67,14 @@
                         <p class="error"><strong>Error:</strong> {{ error }}</p>
                     </div>
                     {% endif %}
+                    <br class="d-none d-sm-block">
                     <div class="form-group row justify-content-center">
                         <button type="submit" class="btn btn-primary" >Iniciar Sesion</button>
                     </div>                        
                   </form>            
         </div>
         <div class="row justify-content-center">
-            <a class="btn btn-secondary" href="/error" role="button">Ayuda</a>
+            <a class="btn btn-secondary" href="/help" role="button">Ayuda</a>
         </div> 
     </div>
 </body>
