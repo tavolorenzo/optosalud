@@ -98,7 +98,6 @@ label {
   border-width: 0px;
 
 }
-
 .btn-secondary {
   border-radius: 25px;
   background-color: #a3e7d9;
@@ -110,7 +109,7 @@ label {
 }
 .sector-room-card{
   border-radius: 25px;
-  background: #54545433;
+  background-color: #54545433;
   border: 2px solid #707070;
   color: #000000;
   font-family: "PT Sans Narrow";
@@ -119,5 +118,25 @@ label {
   font-size: 42px;
   padding: 15px;
   margin: 5px;
-  cursor: pointer;
+}
+.carousel-control-prev{
+  width: 50px;
+  height: 50px;
+  background-color: #545454;
+  opacity: 1;
+  border-radius: 15px;
+  top:30%;
+}
+.carousel-control-next{
+  width: 50px;
+  height: 50px;
+  background-color: #545454;
+  opacity: 1;
+  border-radius: 15px;
+  top:30%;
+}
+
+.carousel-item{
+  margin-left: 10%;
+  margin-right: 10%;
 }

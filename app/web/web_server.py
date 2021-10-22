@@ -16,7 +16,7 @@ def error():
 def base_template():
     return render_template('base_template.html')
 
-@app.route('/help', methods=['GET'])
+@app.route('/help', methods=['GET', 'POST'])
 def help():
     return render_template('help.html')
 
@@ -33,6 +33,14 @@ def login():
 @app.route('/sector_room', methods=['GET','POST'])
 def sector_room():
     return render_template('sector_room.html')
+
+@app.route('/task',methods=['GET','POST'])
+def task():
+    return render_template('task_aux.html')
+
+@app.route('/reports',methods=['GET','POST'])
+def reports():
+    return render_template('reports.html')
 
 if __name__ == '__main__':
     app.debug = True

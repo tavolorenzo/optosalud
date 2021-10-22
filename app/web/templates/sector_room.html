@@ -81,41 +81,174 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid" id="page-content">
+    <div class="container-fluid">
         <div class="row justify-content-center">
             <h6 class="title2">Selecciona un sector, para comenzar.</h6>
         </div>
         <br class="d-none d-sm-block">
-        <div class="row justify-content-center">
+        <div id="carousel-sector" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <!--ciclo pyhton imprime un item cada 6 sectores -->
+                <div class="carousel-item active">
+                    <button class="btn sector-room-card" type="button" data-toggle="collapse"
+                        data-target="#sectorCollapse" aria-expanded="false" aria-controls="sectorCollapse">
+                        Enfermeria
+                    </button>
+                    <button class="btn sector-room-card" type="button" data-toggle="collapse"
+                        data-target="#sectorCollapse" aria-expanded="false" aria-controls="sectorCollapse">
+                        Maternidad
+                    </button>
+                    <button class="btn sector-room-card" type="button" data-toggle="collapse"
+                        data-target="#sectorCollapse" aria-expanded="false" aria-controls="sectorCollapse">
+                        CTI
+                    </button>
+                    <button class="btn sector-room-card" type="button" data-toggle="collapse"
+                        data-target="#sectorCollapse" aria-expanded="false" aria-controls="sectorCollapse">
+                        Internacion
+                    </button>
+                    <button class="btn sector-room-card" type="button" data-toggle="collapse"
+                        data-target="#sectorCollapse" aria-expanded="false" aria-controls="sectorCollapse">
+                        CTI
+                    </button>
+                    <button class="btn sector-room-card" type="button" data-toggle="collapse"
+                        data-target="#sectorCollapse" aria-expanded="false" aria-controls="sectorCollapse">
+                        Internacion
+                    </button>
+                </div>
+                <div class="carousel-item">
+                    <button class="btn sector-room-card" type="button" data-toggle="collapse"
+                        data-target="#sectorCollapse" aria-expanded="false" aria-controls="sectorCollapse">
+                        Another One
+                    </button>
+                    <button class="btn sector-room-card" type="button" data-toggle="collapse"
+                        data-target="#sectorCollapse" aria-expanded="false" aria-controls="sectorCollapse">
+                        Another
+                    </button>
+                    <button class="btn sector-room-card" type="button" data-toggle="collapse"
+                        data-target="#sectorCollapse" aria-expanded="false" aria-controls="sectorCollapse">
+                        Just One More
+                    </button>
+                    <button class="btn sector-room-card" type="button" data-toggle="collapse"
+                        data-target="#sectorCollapse" aria-expanded="false" aria-controls="sectorCollapse">
+                        Why not one?
+                    </button>
+                    <button class="btn sector-room-card" type="button" data-toggle="collapse"
+                        data-target="#sectorCollapse" aria-expanded="false" aria-controls="sectorCollapse">
+                        The last ??
+                    </button>
+                </div>
+                <div class="carousel-item">
+                    <button class="btn sector-room-card" type="button" data-toggle="collapse"
+                        data-target="#sectorCollapse" aria-expanded="false" aria-controls="sectorCollapse">
+                        Enfermeria
+                    </button>
+                    <button class="btn sector-room-card" type="button" data-toggle="collapse"
+                        data-target="#sectorCollapse" aria-expanded="false" aria-controls="sectorCollapse">
+                        Maternidad
+                    </button>
+                    <button class="btn sector-room-card" type="button" data-toggle="collapse"
+                        data-target="#sectorCollapse" aria-expanded="false" aria-controls="sectorCollapse">
+                        CTI
+                    </button>
+                    <button class="btn sector-room-card" type="button" data-toggle="collapse"
+                        data-target="#sectorCollapse" aria-expanded="false" aria-controls="sectorCollapse">
+                        Internacion
+                    </button>
+                </div>
+            </div>
 
-                <!--ciclo for imprie un boton por sector-->
-                <button class="sector-room-card" type="button" data-toggle="collapse" data-target="#sectorCollapse"
-                    aria-expanded="false" aria-controls="sectorCollapse">
-                    Enfermeria
-                </button>
-                <button class="sector-room-card" type="button" data-toggle="collapse" data-target="#sectorCollapse"
-                    aria-expanded="false" aria-controls="sectorCollapse">
-                    Maternidad
-                </button>
-                <button class="sector-room-card" type="button" data-toggle="collapse" data-target="#sectorCollapse"
-                    aria-expanded="false" aria-controls="sectorCollapse">
-                    CTI
-                </button>
-        </div>
-        <div class="row justify-content-center collapse" id="sectorCollapse">
-                <h6 class="title2">Selecciona un sector, para comenzar.</h6>
-                <!--ciclo for imprie un boton por sector-->
-                <button class="sector-room-card" type="button" data-toggle="collapse" data-target="#sectorCollapse"
-                    aria-expanded="false" aria-controls="sectorCollapse">
-                    Maternidad
-                </button>
+            <a class="carousel-control-prev" href="#carousel-sector" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel-sector" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
         <br class="d-none d-sm-block">
+        <div class="container-fluid collapse" id="sectorCollapse">
+            <div class="row justify-content-center">
+                <h6 class="title2">Selecciona un sector, para comenzar.</h6>
+            </div>
+            <div class="row justify-content-center" data-toggle="collapse" data-target="#sectorCollapse"
+            aria-expanded="false" aria-controls="sectorCollapse">
+                <div id="carousel-room" class="carousel slide" data-ride="carousel">
+                    <!--ciclo pyhton imprime un item cada 4 rooms-->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <button class="btn sector-room-card" type="button" data-toggle="collapse"
+                                data-target="#sectorCollapse" aria-expanded="false" aria-controls="sectorCollapse">
+                                Enfermeria
+                            </button>
+                            <button class="btn sector-room-card" type="button" data-toggle="collapse"
+                                data-target="#sectorCollapse" aria-expanded="false" aria-controls="sectorCollapse">
+                                Maternidad
+                            </button>
+                            <button class="btn sector-room-card" type="button" data-toggle="collapse"
+                                data-target="#sectorCollapse" aria-expanded="false" aria-controls="sectorCollapse">
+                                CTI
+                            </button>
+                            <button class="btn sector-room-card" type="button" data-toggle="collapse"
+                                data-target="#sectorCollapse" aria-expanded="false" aria-controls="sectorCollapse">
+                                Internacion
+                            </button>
+                                                   </div>
+                        <div class="carousel-item">
+                            <button class="btn sector-room-card" type="button" data-toggle="collapse"
+                                data-target="#sectorCollapse" aria-expanded="false" aria-controls="sectorCollapse">
+                                Another One
+                            </button>
+                            <button class="btn sector-room-card" type="button" data-toggle="collapse"
+                                data-target="#sectorCollapse" aria-expanded="false" aria-controls="sectorCollapse">
+                                Another
+                            </button>
+                            <button class="btn sector-room-card" type="button" data-toggle="collapse"
+                                data-target="#sectorCollapse" aria-expanded="false" aria-controls="sectorCollapse">
+                                Just One More
+                            </button>
+                            <button class="btn sector-room-card" type="button" data-toggle="collapse"
+                                data-target="#sectorCollapse" aria-expanded="false" aria-controls="sectorCollapse">
+                                Why not one?
+                            </button>
+                        </div>
+                        <div class="carousel-item">
+                            <button class="btn sector-room-card" type="button" data-toggle="collapse"
+                                data-target="#sectorCollapse" aria-expanded="false" aria-controls="sectorCollapse">
+                                Enfermeria
+                            </button>
+                            <button class="btn sector-room-card" type="button" data-toggle="collapse"
+                                data-target="#sectorCollapse" aria-expanded="false" aria-controls="sectorCollapse">
+                                Maternidad
+                            </button>
+                            <button class="btn sector-room-card" type="button" data-toggle="collapse"
+                                data-target="#sectorCollapse" aria-expanded="false" aria-controls="sectorCollapse">
+                                CTI
+                            </button>
+                            <button class="btn sector-room-card" type="button" data-toggle="collapse"
+                                data-target="#sectorCollapse" aria-expanded="false" aria-controls="sectorCollapse">
+                                Internacion
+                            </button>
+                        </div>
+                    </div>
+        
+                    <a class="carousel-control-prev" href="#carousel-room" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carousel-room" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
+    <br class="d-none d-sm-block">
     <div class="container-fluid" id="page-buttoms">
         <div class="row justify-content-center">
             <div class="col-auto">
-                <button class="btn btn-primary" onclick="">Continuar</button>
+                <a class="btn btn-primary" href="/task" role="button">Continuar</a>
             </div>
         </div>
     </div>
