@@ -83,21 +83,64 @@
     </div>
     <div class="container-fluid">
         <div class="row justify-content-center" id="page-content">
-            <div class="col-12">
-                <h6 class="title2">Titulo del EndPoint</h6>
+            <div class="col-auto">
+                <h1 class="title1">Registro Diario</h1>
             </div>
         </div>
         <br class="d-none d-sm-block">
         <div class="row justify-content-center">
-            <div class="col-12">
-                <h1 class="title1">Contenido del EndPoint</h1>
-            </div>
+            <form class="col-12" action="" method="post" autocomplete="off">
+                <div class="form-row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="bed">Cama</label>
+                            <input type="text" class="form-control" id="bed" placeholder="CAMA">
+                            <label for="date">DATE</label>
+                            <input type="text" class="form-control" id="date" placeholder="DATE">
+                        </div>
+                        <div class="form-group">
+                            <label for="nurse">Nurse de turno</label>
+                            <select class="form-control" id="nurse">
+                                <!--ciclo python imprimi una opcion por usuario dispoible-->
+                              <option>Camila Sosa</option>
+                              <option>Gustavo Lorenzo</option>
+                              <option>Federico Sabatinai</option>
+                              <option>Pepe Jose</option>
+                              <option>Uno Mas</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="pacientDocument">Documento </label>
+                            <input type="text" class="form-control" id="pacientDocument" placeholder="Ingresa el documento del paciente">
+                        </div>
+                        <div class="form-group">
+                            <label for="pacientName">Nombre y Apellido</label>
+                            <input type="text" class="form-control" id="pacientName" placeholder="Ingresa el nombre y Apellido del paciente">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group form-row">
+                            <div class="col-12">
+                                <label for="comment">Comentario</label>
+                                <textarea class="form-control" id="comment" placeholder="Intorduce todas las notas necesarias." rows="12"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
     <div class="container-fluid" id="page-buttoms">
-        <div class="row justify-content-center">
-            <div class="col-auto">
-                <button class="btn btn-primary" onclick="">Continuar</button>
+        <div class="row justify-content-around">
+            <div class="col-auto align-self-start">
+                <button class="btn btn-secondary" onclick="history.back()">Regresar</button>
+            </div>
+            <div class="col-auto align-self-center">
+                <button class="btn btn-secondary">Agregar</button>
+                <button class="btn btn-primary">Agregar y Notificar</button>
+            </div>
+            <div class="col-auto align-self-end">
+                <a class="btn btn-secondary"  href="/dialyrecord_new">Siguiente</a>
             </div>
         </div>
     </div>

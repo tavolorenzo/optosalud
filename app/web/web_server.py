@@ -42,6 +42,10 @@ def task():
 def reports():
     return render_template('reports.html')
 
+@app.route('/dialyrecords_new',methods=['GET','POST'])
+def dialyrecord_new():
+    return render_template('dialyrecord_new.html')
+
 if __name__ == '__main__':
     app.debug = True
     app.run(port=5002)
