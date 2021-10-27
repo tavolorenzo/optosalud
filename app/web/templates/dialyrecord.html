@@ -90,56 +90,49 @@
         </div>
         <br class="d-none d-sm-block">
         <div class="row justify-content-center">
-            <form class="col-12 needs-validation" action="" method="post" autocomplete="off" id="dialyRecordForm" novalidate>  <!--Formulario para un nuevo dialy record-->
+            <form class="col-12" autocomplete="off" id="dialyRecordViewForm" >  <!--Formulario para ver dialy record-->
                 <div class="form-row">
                     <div class="col">
                         <div class="form-row">
                             <div class="form-group col">
                                 <label for="date">Fecha y Hora</label>
-                                <input type="date" class="form-control" id="date" readonly>
+                                <input type="text" class="form-control" id="createdDate" value="{{record.createdDate}}" readonly>
                             </div>
                             <div class="form-group col">
                                 <label for="bed">Cama</label>
-                                <input type="text" class="form-control" id="bed" placeholder="CAMA" name="bed" value="{{request.form.bed}}" required/>
-                                <div class="invalid-feedback">
-                                    La cama del paciente no puede estar vacio.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="nurse">Nurse de turno</label>
-                            <select class="form-control" id="nurse" name="nurseId" value="{{request.form.nurseId}}" required>
-                                <option selected disabled value="">Selecciona un nurse</option>
-                                <!--ciclo python imprimi una opcion por usuario con jobPositon tipo Nurse dispoible-->
-                                {%for user in nurses%}
-                                    <option value="{{user.userId}}">{{user.name}} {{user.lastName}}</option>
-                                {%endfor%}
-                            </select>
-                            <div class="invalid-feedback">
-                                El nurse de turno no puede estar vacio.
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="pacientDocument">Documento </label>
-                            <input type="text" class="form-control" id="pacientDocument" placeholder="Ingresa el documento del paciente" name="pacientDocument" value="{{request.form.pacientDocument}}" required/>
-                            <div class="invalid-feedback">
-                                El documento del paciente no puede estar vacio.
+                                <input type="text" class="form-control" id="bed" name="bed" value="{{record.bed}}" readonly/>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col">
+                                <label for="date">Sector</label>
+                                <input type="text" class="form-control" id="sector" value="{{record.SectorName}}" readonly>
+                            </div>
+                            <div class="form-group col">
+                                <label for="bed">Sala</label>
+                                <input type="text" class="form-control" id="room" value="{{record.roomName}}" readonly/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="nurse">Licenciada de turno</label>
+                            <input type="text" class="form-control" id="nurse" name="nurse"  value="{{record.nurseInfo[0].nurseName}} {{record.nurseInfo[0].nurseLastName}}" readonly/>
+                        </div>
+                        <div class="form-group">
+                            <label for="pacientDocument">Auxiliar de enfermeria</label>
+                            <input type="text" class="form-control" id="auxNurse" name="auxNurse" value="{{record.auxNurseInfo[0].auxNurseName}} {{record.auxNurseInfo[0].auxNurseLastName}}" readonly/>
+                        </div>
+                        <div class="form-group">
+                            <label for="pacientDocument">Documento del Paciente</label>
+                            <input type="text" class="form-control" id="pacientDocument" name="pacientDocument" value="{{record.pacientDocument}}" readonly/>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col">
                                 <label for="pacientName">Nombre del Paciente</label>
-                                <input type="text" class="form-control" id="pacientName" placeholder="Ingresa el nombre del paciente" name="pacientName" value="{{request.form.pacientName}}" required/>
-                                <div class="invalid-feedback">
-                                    El nombre del paciente no puede estar vacio.
-                                </div>
+                                <input type="text" class="form-control" id="pacientName" name="pacientName" value="{{record.pacientName}}" readonly/>
                             </div>
                             <div class="form-group col">
                                 <label for="pacientLastName">Apellido del Paciente</label>
-                                <input type="text" class="form-control" id="pacientLastName" placeholder="Ingresa el apellido del paciente" name="pacientLastName" value="{{request.form.pacientName}}" required/>
-                                <div class="invalid-feedback">
-                                    El apellido del paciente no puede estar vacio.
-                                </div>
+                                <input type="text" class="form-control" id="pacientLastName"  name="pacientLastName" value="{{record.pacientLastName}}" readonly/>
                             </div>
                         </div>
                     </div>
@@ -147,10 +140,7 @@
                         <div class="form-group form-row">
                             <div class="col-12">
                                 <label for="comment">Comentario</label>
-                                <textarea class="form-control" id="comment" placeholder="Intorduce todas las notas necesarias." rows="12"name="comment" value="{{request.form.comment}}" required></textarea>
-                                <div class="invalid-feedback">
-                                    El comentario no puede estar vacio.
-                                </div>
+                                <textarea class="form-control" id="comment" rows="12" name="comment" value="{{record.comment}}" readonly></textarea>
                             </div>
                         </div>
                     </div>
@@ -162,14 +152,7 @@
     <footer class="container-fluid" id="page-buttoms">
         <div class="row justify-content-around">
             <div class="col-auto align-self-start">
-                <a class="btn btn-secondary" href="/tasks">Voler a las tareas</a>
-            </div>
-            <div class="col-auto align-self-center">
-                <button type="submit" class="btn btn-primary" form="dialyRecordForm" onclick="resetForm('dialyRecordForm')">Agregar</button> <!--envia el form por medio del ID y deja en blanco para un nuevo registro-->
-                
-            </div>
-            <div class="col-auto align-self-end">
-                <button type="submit" class="btn btn-primary disabled" form="dialyRecordForm">Agregar y Notificar</button>
+                <a class="btn btn-secondary" href="/dialyrecords">Voler a los registros</a>
             </div>
         </div>
     </footer>

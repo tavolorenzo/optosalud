@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="static/css/main.css" />
+    <link rel="stylesheet" href="/static/css/main.css" />
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -24,10 +24,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script src="static/js/main.js"></script>
+    <script src="/static/js/main.js"></script>
 
-    <link rel="shortcut icon" href="static/img/favicon.ico" type="image/x-icon" />
-    <link rel="icon" href="static/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon" />
     <title>OptoSalud</title>
 </head>
 
@@ -82,35 +82,33 @@
             </div>
         </div>
     </header>
-    <div class="container-fluid">
-        <div class="row justify-content-center" id="page-content">
-            <div col-12>
-                <h6 class="title2">Selecciona el informe deseado:</h6>
+    <section class="container-fluid">
+        <div class="card-columns">
+            {%for item in dialyrecords%}
+            <div class="card bg-light">
+                <div class="card-header">
+                  {{item.createdDate}}
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Cama: {{item.bed}}</li>
+                    <li class="list-group-item">Paciente: {{item.pacientName}} {{item.pacientLastName}}</li>
+                  </ul>
+                <div class="card-body">
+                  <p class="card-text">{{item.comment[0:100]}}...</p>
+                  <a href="/dialyrecords/{{item.recordId}}" class="btn btn-primary">Ver registro</a>
+                </div>
+              </div>
+              {%endfor%}
+        </div>
+     </section>
+    <br class="d-none d-sm-block">
+    <footer class="container-fluid" id="page-buttoms">
+        <div class="row justify-content-center">
+            <div class="col-auto align-self-start">
+                <a class="btn btn-secondary" href="/reports">Voler a los informes</a>
             </div>
         </div>
-        <br class="d-none d-sm-block">
-        <div class="row justify-content-center">
-            <a class="btn sector-room-card" role="button" href="/dialyrecords"> 
-                Registro Diario
-            </a>
-        </div>
-        <br class="d-none d-sm-block">
-        <div class="row justify-content-center">
-            <a class="btn sector-room-card" role="button" href="/error">
-                Registro de Farmacos
-            </a>
-            <a class="btn sector-room-card" role="button" href="/error">
-                Registro de Materiales
-            </a>
-        </div>
-    </div>
-    <div class="container-fluid" id="page-buttoms">
-        <div class="row justify-content-center">
-            <div class="col-auto">
-                <button class="btn btn-secondary" onclick="history.back()">Regresar</button>
-            </div>
-        </div>
-    </div>
+    </footer>
 </body>
 
 </html>

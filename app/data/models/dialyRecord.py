@@ -73,7 +73,7 @@ def view_dialyRecords(): #OK
              "pacientDocument": entry[3],
              "pacientName": entry[4],
              "pacientLastName": entry[5],
-             "coment": entry[6],
+             "comment": entry[6],
              "nurseId":entry[7],
              "auxNurseId":entry[8],
              "sectorId": entry[9],

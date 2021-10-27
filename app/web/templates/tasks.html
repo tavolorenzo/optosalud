@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="static/css/main.css" />
+    <link rel="stylesheet" href="/static/css/main.css" />
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -24,10 +24,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script src="static/js/main.js"></script>
+    <script src="/static/js/main.js"></script>
 
-    <link rel="shortcut icon" href="static/img/favicon.ico" type="image/x-icon" />
-    <link rel="icon" href="static/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon" />
     <title>OptoSalud</title>
 </head>
 
@@ -38,7 +38,8 @@
                 <img src="/static/img/optosalud.png" id="logo" alt="OptoSalud Logo" style="width:140px;" />
             </div>
             <div class="col align-self-center">
-                <h1 class="title1">{{sectorName}}</h1>
+                <!-- <h1 class="title1">{{sectorRoom}}</h1> -->
+                <h2 class="title1">{{sectorName}}</h2>
                 <h3 class="title2">Institucion Sanitaria</h3>
             </div>
             <div class="col-auto">
@@ -82,16 +83,20 @@
             </div>
         </div>
     </header>
-    <div class="container-fluid">
-        <div class="row justify-content-center" id="page-content">
+    <section class="container-fluid" id="page-content">
+        <div class="row justify-content-center" >
             <div col-12>
-                <h6 class="title2">Selecciona el informe deseado:</h6>
+                <h6 class="title2">Selecciona una tarea:</h6>
             </div>
         </div>
         <br class="d-none d-sm-block">
+
         <div class="row justify-content-center">
-            <a class="btn sector-room-card" role="button" href="/dialyrecords"> 
+            <a class="btn sector-room-card" role="button" href="/dialyrecord_new"> 
                 Registro Diario
+            </a>
+            <a class="btn sector-room-card" role="button" href="/reports">
+                Informes
             </a>
         </div>
         <br class="d-none d-sm-block">
@@ -103,14 +108,15 @@
                 Registro de Materiales
             </a>
         </div>
-    </div>
-    <div class="container-fluid" id="page-buttoms">
+    </section>
+    <br class="d-none d-sm-block">
+    <footer class="container-fluid" id="page-buttoms">
         <div class="row justify-content-center">
             <div class="col-auto">
                 <button class="btn btn-secondary" onclick="history.back()">Regresar</button>
             </div>
         </div>
-    </div>
+    </footer>
 </body>
 
 </html>
