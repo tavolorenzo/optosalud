@@ -38,7 +38,7 @@
                 <img src="/static/img/optosalud.png" id="logo" alt="OptoSalud Logo" style="width:140px;" />
             </div>
             <div class="col align-self-center">
-                <h1 class="title1">OptoSalud</h1>
+                <h2 class="title1">Administrar Institucion</h2>
                 <h3 class="title2">Institucion Sanitaria</h3>
             </div>
             <div class="col-auto">
@@ -82,20 +82,29 @@
             </div>
         </div>
     </header>
-    <section class="container-fluid">
+    <section class="container-fluid" id="page-content">
+        <div class="row justify-content-center" >
+            <div col-12>
+                <h6 class="title2">Selecciona una tarea:</h6>
+            </div>
+        </div>
+        <br class="d-none d-sm-block">
+
         <div class="row justify-content-center">
-            <h6 class="title2">Selecciona un sector, para comenzar.</h6>
+            <a class="btn sector-room-card" role="button" href="/error"> 
+                Administar Usuarios
+            </a>
+            <a class="btn sector-room-card" role="button" href="/admin/sectors">
+                Administar Sectores
+            </a>
         </div>
         <br class="d-none d-sm-block">
         <div class="row justify-content-center">
-            {% for item in sectors %}
-            <a class="btn sector-room-card" type="button" href="/sectors/{{item.sectorId}}">
-                {{item.name}}            
+            <a class="btn sector-room-card" role="button" href="/admin/reports">
+                Informes
             </a>
-            {% endfor %}
         </div>
-        
-     </section>
+    </section>
     <br class="d-none d-sm-block">
     <footer class="container-fluid" id="page-buttoms">
         <div class="row justify-content-center">

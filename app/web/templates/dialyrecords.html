@@ -65,7 +65,7 @@
                                 <br>
                                 <div class="row justify-content-between">
                                     <div class="col-6">
-                                        <a class="btn btn-secondary" href="/help" role="button">Ayuda</a>
+                                        <a class="btn btn-secondary" target=”_blank” href="/help" role="button">Ayuda</a>
                                     </div>
                                     <div class="col-6">
                                         <a class="btn btn-primary" href="/logout" role="button">Salir</a>
@@ -95,7 +95,7 @@
                   </ul>
                 <div class="card-body">
                   <p class="card-text">{{item.comment[0:100]}}...</p>
-                  <a href="/dialyrecords/{{item.recordId}}" class="btn btn-primary">Ver registro</a>
+                  <a href="/dialyrecords/{{item.recordId}}" target=”_blank” class="btn btn-primary">Ver registro</a>
                 </div>
               </div>
               {%endfor%}

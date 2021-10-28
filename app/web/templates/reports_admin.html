@@ -38,7 +38,7 @@
                 <img src="/static/img/optosalud.png" id="logo" alt="OptoSalud Logo" style="width:140px;" />
             </div>
             <div class="col align-self-center">
-                <h1 class="title1">OptoSalud</h1>
+                <h1 class="title1">Informes</h1>
                 <h3 class="title2">Institucion Sanitaria</h3>
             </div>
             <div class="col-auto">
@@ -82,28 +82,35 @@
             </div>
         </div>
     </header>
-    <section class="container-fluid">
-        <div class="row justify-content-center">
-            <h6 class="title2">Selecciona un sector, para comenzar.</h6>
+    <div class="container-fluid">
+        <div class="row justify-content-center" id="page-content">
+            <div col-12>
+                <h6 class="title2">Selecciona el informe deseado:</h6>
+            </div>
         </div>
         <br class="d-none d-sm-block">
         <div class="row justify-content-center">
-            {% for item in sectors %}
-            <a class="btn sector-room-card" type="button" href="/sectors/{{item.sectorId}}">
-                {{item.name}}            
+            <a class="btn sector-room-card" role="button" href="/dialyrecords"> 
+                Registro Diario
             </a>
-            {% endfor %}
         </div>
-        
-     </section>
-    <br class="d-none d-sm-block">
-    <footer class="container-fluid" id="page-buttoms">
+        <br class="d-none d-sm-block">
+        <div class="row justify-content-center">
+            <a class="btn sector-room-card" role="button" href="/error">
+                Registro de Farmacos
+            </a>
+            <a class="btn sector-room-card" role="button" href="/error">
+                Registro de Materiales
+            </a>
+        </div>
+    </div>
+    <div class="container-fluid" id="page-buttoms">
         <div class="row justify-content-center">
             <div class="col-auto">
-                <a class="btn btn-primary" href="/logout" role="button">Salir</a>
+                <a class="btn btn-secondary" type="buttom" href="/admin">Regresar</a>
             </div>
         </div>
-    </footer>
+    </div>
 </body>
 
 </html>

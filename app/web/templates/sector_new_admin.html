@@ -38,7 +38,7 @@
                 <img src="/static/img/optosalud.png" id="logo" alt="OptoSalud Logo" style="width:140px;" />
             </div>
             <div class="col align-self-center">
-                <h1 class="title1">OptoSalud</h1>
+                <h1 class="title1">Nuevo Sector</h1>
                 <h3 class="title2">Institucion Sanitaria</h3>
             </div>
             <div class="col-auto">
@@ -83,24 +83,46 @@
         </div>
     </header>
     <section class="container-fluid">
-        <div class="row justify-content-center">
-            <h6 class="title2">Selecciona un sector, para comenzar.</h6>
-        </div>
         <br class="d-none d-sm-block">
         <div class="row justify-content-center">
-            {% for item in sectors %}
-            <a class="btn sector-room-card" type="button" href="/sectors/{{item.sectorId}}">
-                {{item.name}}            
-            </a>
-            {% endfor %}
+            <form class="col-10" action="" method="post" autocomplete="off" id="sectorForm">
+                <div class="form-row">
+                    <div class="form-group col">
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <input type="text" class="form-control" id="name" name="name" value="{{request.form.name}}"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Estado</label>
+                            <select class="form-control" id="status" name="status" value="{{request.form.status}}" disabled>
+                                <option selected value="1">Activo</option>
+                            </select>
+                        </div>
+                        <div class="form-group justify-content-center">
+                                <img class="sector-photo" src="/static/img/sector-icon.jpg"/>
+                        </div>
+                    </div>
+                    <div class="form-group col">
+                        <div class="form-group">
+                            <label for="roomName">Sala</label>
+                            <input type="text" class="form-control" id="roomName" name="roomName" placeholder="Ingresa una Sala" value="{{request.form.roomName}}" >
+                        </div>
+                        <div class="form-group text-center">
+                            <h6 class="title2">Despues de crear el sector con una sala podra agregar mas salas.</h6>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
-        
      </section>
     <br class="d-none d-sm-block">
     <footer class="container-fluid" id="page-buttoms">
         <div class="row justify-content-center">
-            <div class="col-auto">
-                <a class="btn btn-primary" href="/logout" role="button">Salir</a>
+            <div class="col-auto align-self-start">
+                <a class="btn btn-secondary" href="/admin/sectors" role="button">Regresar</a>
+            </div>
+            <div class="col-auto align-self-center">
+                <button type="submit" class="btn btn-primary" form="sectorForm">Guardar</button> <!--envia el form por medio del ID-->
             </div>
         </div>
     </footer>

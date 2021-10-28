@@ -65,7 +65,7 @@
                                 <br>
                                 <div class="row justify-content-between">
                                     <div class="col-6">
-                                        <a class="btn btn-secondary" href="/help" role="button">Ayuda</a>
+                                        <a class="btn btn-secondary" target=”_blank” href="/help" role="button">Ayuda</a>
                                     </div>
                                     <div class="col-6">
                                         <a class="btn btn-primary" href="/logout" role="button">Salir</a>
@@ -89,20 +89,20 @@
                     <div class="col">
                         <div class="form-group">
                             <label for="pacientDocument">Documento</label>
-                            <input type="text" class="form-control" id="document" name="document" value="{{user.document}}" readonly/>
+                            <input type="text" class="form-control" id="document" name="document" value="{{user.document}}" disabled/>
                         </div>
                         <div class="form-row">
                             <div class="form-group col">
                                 <label for="pacientName">Nombre</label>
-                                <input type="text" class="form-control" id="name" name="name" value="{{user.name}}" readonly/>
+                                <input type="text" class="form-control" id="name" name="name" value="{{user.name}}" disabled/>
                             </div>
                             <div class="form-group col">
                                 <label for="pacientLastName">Apellido</label>
-                                <input type="text" class="form-control" id="lastName"  name="lastName" value="{{user.lastName}}" readonly/>
+                                <input type="text" class="form-control" id="lastName"  name="lastName" value="{{user.lastName}}" disabled/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="password">Contraseña</label>
+                            <label for="password">Nueva Contraseña</label>
                             <input type="password" class="form-control" id="password" name="password" value="{{request.form.password}}" required/>
                             <div class="invalid-feedback">
                                 La contraseña no puede estar vacia.
@@ -118,30 +118,28 @@
                     </div>
                     <div class="col">
                         <div class="form-group">
+                            <label for="jobPosition">Puesto de trabajo</label>
+                            <input type="text" class="form-control" id="jobPosition" name="jobPosition" value="{{user.jobPosition}}" disabled/>
+                        </div>
+                        <div class="form-group">
+                            <label for="role">Role</label>
+                            <input type="text" class="form-control" id="role" name="role" value="{{user.roleDescription}}" disabled/>
+                        </div>
+                        <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" value="{{user.email}}" onchange="emailChange()" required/>
-                            <div class="invalid-feedback">
-                                El mail no puede estar vacio.
-                            </div>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="{{user.email}}" value="{{request.form.email}}"/>
                         </div>
                         <div class="form-group">
                             <label for="phone">Telefono</label>
-                            <input type="text" class="form-control" id="phone" name="phone" value="{{user.phone}}"  onchange="phoneChange()" required/>
-                            <div class="invalid-feedback">
-                                El telefono no puede estar vacio.
-                            </div>
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="{{user.phone}}"  value="{{request.form.phone}}"/>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="form-group">
-                            <img src="{{user.photoURI}}"/>
+                    <div class="col-3">
+                        <div class="form-group row justify-content-center">
+                            <img class="user-photo" src="/static/img{{user.photoURI}}"/>
                         </div>
-                        <div class="form-group">
-                            <label for="phone">Telefono</label>
-                            <input type="text" class="form-control" id="phone" name="phone" value="{{user.phone}}"  onchange="phoneChange()" required/>
-                            <div class="invalid-feedback">
-                                El telefono no puede estar vacio.
-                            </div>
+                        <div class="form-group row justify-content-center">
+                            <span class="btn btn-secondary disabled" >Editar Icono</span>
                         </div>
                     </div>
                 </div>
@@ -155,11 +153,7 @@
                 <button class="btn btn-secondary" onclick="history.back()">Regresar</button>
             </div>
             <div class="col-auto align-self-center">
-                <button type="submit" class="btn btn-primary" form="profileForm">Guardar</button> <!--envia el form por medio del ID-->
-                
-            </div>
-            <div class="col-auto align-self-end">
-                
+                <button type="submit" class="btn btn-primary" form="profileForm" onclick="resetForm(profileForm)">Guardar</button> <!--envia el form por medio del ID-->
             </div>
         </div>
     </footer>

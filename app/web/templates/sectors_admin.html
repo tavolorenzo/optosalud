@@ -38,7 +38,7 @@
                 <img src="/static/img/optosalud.png" id="logo" alt="OptoSalud Logo" style="width:140px;" />
             </div>
             <div class="col align-self-center">
-                <h1 class="title1">OptoSalud</h1>
+                <h1 class="title1">Administar Sectores</h1>
                 <h3 class="title2">Institucion Sanitaria</h3>
             </div>
             <div class="col-auto">
@@ -84,12 +84,15 @@
     </header>
     <section class="container-fluid">
         <div class="row justify-content-center">
-            <h6 class="title2">Selecciona un sector, para comenzar.</h6>
+            <h6 class="title2">Selecciona un sector o crea uno nuevo.</h6>
         </div>
         <br class="d-none d-sm-block">
         <div class="row justify-content-center">
+            <a class="btn sector-room-card" style="background-color: #a3e7d9;"type="button" href="/admin/sectors/new">
+                Nuevo Sector 
+            </a>
             {% for item in sectors %}
-            <a class="btn sector-room-card" type="button" href="/sectors/{{item.sectorId}}">
+            <a class="btn sector-room-card" type="button" href="/admin/sectors/{{item.sectorId}}">
                 {{item.name}}            
             </a>
             {% endfor %}
@@ -100,7 +103,7 @@
     <footer class="container-fluid" id="page-buttoms">
         <div class="row justify-content-center">
             <div class="col-auto">
-                <a class="btn btn-primary" href="/logout" role="button">Salir</a>
+                <a class="btn btn-primary" href="/admin" role="button">Regresar</a>
             </div>
         </div>
     </footer>

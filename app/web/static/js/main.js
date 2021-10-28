@@ -11,13 +11,6 @@ $(document).ready( function() {
 function resetForm(formId) {
   document.getElementById(formId).reset();
 }
-function emailChange() {
-  document.getElementById(email).value="{{request.form.email}}";
-}
-function phoneChange() {
-  document.getElementById(phone).value="{{request.form.phone}}";
-}
-
 (function() {
   'use strict';
   window.addEventListener('load', function() {
