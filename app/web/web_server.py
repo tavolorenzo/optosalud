@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, url_for, session
+from flask import Flask, request, redirect, url_for, session,jsonify
 from flask import render_template
 import requests
 from services import autentication, sector_room, users, dialy_records
@@ -132,6 +132,16 @@ def reports_admin():
     else:
         return redirect(url_for('forbidden'))
 
+@app.route('/admin/users',methods=['GET','POST'])
+def users_admin():
+    userId = session["userId"]
+    userName = session["userName"]
+    userLastName= session["userLastName"]
+    if session["userRoleID"] ==1:
+        return render_template('users_admin.html', userId=userId, userName=userName, userLastName=userLastName)
+    else:
+        return redirect(url_for('forbidden'))
+
 @app.route('/sectors', methods=['GET','POST'])
 def sectors():
     userId = session["userId"]
@@ -240,6 +250,12 @@ def profile(userId):
         userInfo=answer[0]
         return render_template('profile.html',userId=userId, userName=userName, userLastName=userLastName, user=userInfo )
     return render_template('profile.html',userId=userId, userName=userName, userLastName=userLastName,  user=userInfo )
+
+@app.route('/get_userId', methods=['POST'])
+def get_userId():
+    userDocument=request.form["userSearchedDocument"]
+    userInfo=users.getUserId(userDocument)
+    return jsonify(userInfo)
 
 if __name__ == '__main__':
     app.debug = True

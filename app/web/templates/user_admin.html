@@ -38,7 +38,7 @@
                 <img src="/static/img/optosalud.png" id="logo" alt="OptoSalud Logo" style="width:140px;" />
             </div>
             <div class="col align-self-center">
-                <h2 class="title1">Administrar Institucion</h2>
+                <h1 class="title1">Administar Usuario</h1>
                 <h3 class="title2">Institucion Sanitaria</h3>
             </div>
             <div class="col-auto">
@@ -82,34 +82,78 @@
             </div>
         </div>
     </header>
-    <section class="container-fluid" id="page-content">
-        <div class="row justify-content-center" >
-            <div col-12>
-                <h6 class="title2">Selecciona una tarea:</h6>
-            </div>
-        </div>
-        <br class="d-none d-sm-block">
-
+    <section class="container-fluid">
         <div class="row justify-content-center">
-            <a class="btn sector-room-card" role="button" href="/admin/users"> 
-                Administar Usuarios
-            </a>
-            <a class="btn sector-room-card" role="button" href="/admin/sectors">
-                Administar Sectores
-            </a>
+            <form class="col-12 needs-validation" action="" method="post" autocomplete="off" id="profileForm" novalidate>  <!--Formulario para un nuevo dialy record-->
+                <div class="form-row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="pacientDocument">Documento</label>
+                            <input type="text" class="form-control" id="document" name="document" value="{{user.document}}" disabled/>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col">
+                                <label for="pacientName">Nombre</label>
+                                <input type="text" class="form-control" id="name" name="name" value="{{user.name}}" disabled/>
+                            </div>
+                            <div class="form-group col">
+                                <label for="pacientLastName">Apellido</label>
+                                <input type="text" class="form-control" id="lastName"  name="lastName" value="{{user.lastName}}" disabled/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Nueva Contraseña</label>
+                            <input type="password" class="form-control" id="password" name="password" value="{{request.form.password}}" required/>
+                            <div class="invalid-feedback">
+                                La contraseña no puede estar vacia.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="repeatpassword">Repetir Contraseña</label>
+                            <input type="password" class="form-control" id="repeatpassword" name="repeatpassword" value="{{request.form.password}}" required/>
+                            <div class="invalid-feedback">
+                                La contraseña no puede estar vacia.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="jobPosition">Puesto de trabajo</label>
+                            <input type="text" class="form-control" id="jobPosition" name="jobPosition" value="{{user.jobPosition}}" disabled/>
+                        </div>
+                        <div class="form-group">
+                            <label for="role">Role</label>
+                            <input type="text" class="form-control" id="role" name="role" value="{{user.roleDescription}}" disabled/>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="{{user.email}}" value="{{request.form.email}}"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefono</label>
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="{{user.phone}}"  value="{{request.form.phone}}"/>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group row justify-content-center">
+                            <img class="user-photo" src="/static/img{{user.photoURI}}"/>
+                        </div>
+                        <div class="form-group row justify-content-center">
+                            <span class="btn btn-secondary disabled" >Editar Icono</span>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
-        <br class="d-none d-sm-block">
-        <div class="row justify-content-center">
-            <a class="btn sector-room-card" role="button" href="/admin/reports">
-                Informes
-            </a>
-        </div>
-    </section>
+     </section>
     <br class="d-none d-sm-block">
     <footer class="container-fluid" id="page-buttoms">
         <div class="row justify-content-center">
-            <div class="col-auto">
-                <a class="btn btn-primary" href="/logout" role="button">Salir</a>
+            <div class="col-auto align-self-start">
+                <button class="btn btn-secondary" onclick="history.back()">Regresar</button>
+            </div>
+            <div class="col-auto align-self-center">
+                <button type="submit" class="btn btn-primary" form="profileForm" onclick="resetForm(profileForm)">Guardar</button> <!--envia el form por medio del ID-->
             </div>
         </div>
     </footer>

@@ -26,3 +26,12 @@ def updateUser(userId,phone, email, photoURI, jobPosition, password, roleId, sta
     }
     answer=requests.put(f'{rest_api.API_URL}/users/{userId}',json=body)
     return answer.status_code
+
+def getUserId(document):
+    body = {
+        "document":document,
+    }
+    userId = requests.get(f'{rest_api.API_URL}/users' , json = body)
+    answer = requests.get(f'{rest_api.API_URL}/users/{userId.json()[0]["userId"]}')
+    return answer.json()
+ 

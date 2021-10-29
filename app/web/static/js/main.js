@@ -10,7 +10,8 @@ $(document).ready( function() {
 
 function resetForm(formId) {
   document.getElementById(formId).reset();
-}
+};
+
 (function() {
   'use strict';
   window.addEventListener('load', function() {
@@ -28,3 +29,22 @@ function resetForm(formId) {
     });
   }, false);
 })();
+
+function getUser(){
+  var formElement = document.getElementById("userSearch");
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "/get_userId");
+  xhr.send(new FormData(formElement));
+  xhr.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var x=document.getElementById("userFoundContainer");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      };
+    };
+    var xmlDoc = xml.responseXML;
+    document.getElementById("userSearchedName").value = "preuba";
+    var url = "/admin/users/"+ xmlDoc.getElementsByTagName("userId");
+    document.getElementById("userSearchedURL").setAttribute("href", url);
+  };
+};

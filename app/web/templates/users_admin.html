@@ -38,7 +38,7 @@
                 <img src="/static/img/optosalud.png" id="logo" alt="OptoSalud Logo" style="width:140px;" />
             </div>
             <div class="col align-self-center">
-                <h2 class="title1">Administrar Institucion</h2>
+                <h1 class="title1">Administar Usuarios</h1>
                 <h3 class="title2">Institucion Sanitaria</h3>
             </div>
             <div class="col-auto">
@@ -56,8 +56,10 @@
                                 <div class="row justify-content-center">
                                     <div class="col-auto main-menu-items">
                                         <!-- Dropdown menu links -->
-                                        <a class="dropdown-header main-menu-item" href="/users/{{userId}}">Ver Perfil</a>
-                                        <a class="dropdown-header main-menu-item" href="/sectors">Cambiar Sector/Sala</a>
+                                        <a class="dropdown-header main-menu-item" href="/users/{{userId}}">Ver
+                                            Perfil</a>
+                                        <a class="dropdown-header main-menu-item" href="/sectors">Cambiar
+                                            Sector/Sala</a>
                                         <a class="dropdown-item main-menu-item" href="#">Active link</a>
                                         <a class="dropdown-item main-menu-item" href="#">Another link</a>
                                     </div>
@@ -65,7 +67,8 @@
                                 <br>
                                 <div class="row justify-content-between">
                                     <div class="col-6">
-                                        <a class="btn btn-secondary" target=”_blank” href="/help" role="button">Ayuda</a>
+                                        <a class="btn btn-secondary" target=”_blank” href="/help"
+                                            role="button">Ayuda</a>
                                     </div>
                                     <div class="col-6">
                                         <a class="btn btn-primary" href="/logout" role="button">Salir</a>
@@ -82,34 +85,55 @@
             </div>
         </div>
     </header>
-    <section class="container-fluid" id="page-content">
-        <div class="row justify-content-center" >
-            <div col-12>
-                <h6 class="title2">Selecciona una tarea:</h6>
+    <section class="container-fluid">
+        <div class="row justify-content-center">
+            <h6 class="title2">Modifica un usuario o crea uno nuevo.</h6>
+        </div>
+        <br class="d-none d-sm-block">
+        <div class="row justify-content-center">
+            <a class="btn sector-room-card" style="background-color: #a3e7d9;" type="button" href="/admin/users/new">
+                Crear Usuario
+            </a>
+            <button type="button" class="btn sector-room-card" data-toggle="modal" data-target="#userSearchModal">
+                Modificar Usuario
+            </button>
+        </div>
+        <div class="modal fade" id="userSearchModal" role="dialog" data-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="userSearchModalLabel">Modificar Usuario</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="userSearch">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="userSearchedDocument"placeholder="Ingresa un Docuemento" value="{{request.form.userSearchedDocument}}"/>
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" onclick="getUser()">Buscar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="form-row justify-content-center" style="display: none;" id="userFoundContainer">
+                        <input type="text" id="userSearchedName" disabled/>
+                        <a type="button" class="btn btn-primary" id="userSearchedURL" href="">Modificar</a>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
             </div>
-        </div>
-        <br class="d-none d-sm-block">
-
-        <div class="row justify-content-center">
-            <a class="btn sector-room-card" role="button" href="/admin/users"> 
-                Administar Usuarios
-            </a>
-            <a class="btn sector-room-card" role="button" href="/admin/sectors">
-                Administar Sectores
-            </a>
-        </div>
-        <br class="d-none d-sm-block">
-        <div class="row justify-content-center">
-            <a class="btn sector-room-card" role="button" href="/admin/reports">
-                Informes
-            </a>
         </div>
     </section>
     <br class="d-none d-sm-block">
     <footer class="container-fluid" id="page-buttoms">
         <div class="row justify-content-center">
             <div class="col-auto">
-                <a class="btn btn-primary" href="/logout" role="button">Salir</a>
+                <a class="btn btn-primary" href="/admin" role="button">Regresar</a>
             </div>
         </div>
     </footer>
