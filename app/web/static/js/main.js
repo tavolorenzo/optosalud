@@ -42,9 +42,10 @@ function getUser(){
         x.style.display = "block";
       };
     };
-    var xmlDoc = xml.responseXML;
-    document.getElementById("userSearchedName").value = "preuba";
+    var xmlDoc = xhr.responseXML;
+    document.getElementById("userSearchedName").value = "prueba";
     var url = "/admin/users/"+ xmlDoc.getElementsByTagName("userId");
+    console.log(url)
     document.getElementById("userSearchedURL").setAttribute("href", url);
   };
 };

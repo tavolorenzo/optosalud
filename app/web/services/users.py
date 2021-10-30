@@ -12,7 +12,7 @@ def users_by_JobPosition(jobPosition):
 
 def userInfo(userId):
     answer = requests.get(f'{rest_api.API_URL}/users/{userId}')
-    return answer.json()
+    return answer.json()[0]
 
 def updateUser(userId,phone, email, photoURI, jobPosition, password, roleId, status):
     body={
@@ -33,5 +33,5 @@ def getUserId(document):
     }
     userId = requests.get(f'{rest_api.API_URL}/users' , json = body)
     answer = requests.get(f'{rest_api.API_URL}/users/{userId.json()[0]["userId"]}')
-    return answer.json()
+    return answer.json()[0]
  
